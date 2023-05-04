@@ -1,0 +1,65 @@
+swagger: "2.0"
+info:
+  description: "OpenApi Spec for Sample"
+  version: "1.0"
+  title: "Sample"
+host: "api.sample.io"
+basePath: "/"
+schemes:
+  - "https"
+
+securityDefinitions:
+  AuthQueryParam:
+    type: apiKey
+    in: query
+    name: auth
+  AccessTokenQueryParam:
+    type: apiKey
+    in: query
+    name: access_token
+
+security:
+  - AuthQueryParam: []
+  - AccessTokenQueryParam: []
+
+parameters:
+  anyBody:
+    in: body
+    name: body
+    schema:
+      type: any
+    description: Free-form data structure
+
+  anyOne:
+    in: path
+    name: anyOne
+    type: string
+    required: true
+    description: Free-form path structure
+
+paths:
+  /{anyOne}.json:
+    get:
+      tags:
+        - People
+      summary: "Get People"
+      operationId: "PeopleGet"
+      consumes:
+        - "application/json"
+      produces:
+        - "application/json"
+      parameters:
+        - $ref: "#/parameters/anyOne"
+
+      responses:
+        "200":
+          description: "Success"
+
+definitions:
+  created_at:
+    type: string
+    format: date-time
+
+  updated_at:
+    type: string
+    format: date-time

@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "lib": ["ES2020", "DOM"],
+        "target": "es6",
+        "baseUrl": ".",
+        "checkJs": true,
+        "allowUmdGlobalAccess": true,
+        "resolveJsonModule": true,
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true,
+        "jsx": "react-jsx",
+        "paths": {
+            "components/*": ["../ui/*"]
+        }
+    }
+}

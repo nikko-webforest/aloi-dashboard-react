@@ -1,0 +1,16 @@
+query endpoint
+@GET(path: "/people" response: "data.response")
+{
+  response: SelectAll(
+    from: "peopleGet"
+    get: "data.response"
+  )
+}
+
+query peopleGet 
+{ 
+  response: PeopleGet(request: { auth: $auth orderBy: "\"product_id\"", equalTo: $id }){
+    body: All(get: "this.body")
+    statusCode
+  }
+}

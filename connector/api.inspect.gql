@@ -1,0 +1,8 @@
+query endpoint
+    @GET(path: "/__inspect" response: "data.response")
+{
+    response: Object(value: ".") {
+        body: All(get: "settings.__metadata|merge({ __release:config.__release })")
+        statusCode: Integer(value: 200)
+    }
+}

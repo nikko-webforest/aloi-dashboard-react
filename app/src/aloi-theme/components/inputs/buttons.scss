@@ -1,0 +1,34 @@
+a {
+  &.MuiButton-containedPrimary {
+    background: $secondaryColor;
+    border-radius: 50px;
+    padding: 8px 25px;
+    &:hover {
+      background: darken($secondaryColor, 20%);
+    }
+  }
+}
+
+button {
+  &.MuiButton-containedPrimary {
+    background: $secondaryColor;
+    border-radius: 50px;
+    padding: 8px 25px;
+    &:hover {
+      background: darken($secondaryColor, 20%);
+    }
+  }
+}
+
+.MuiPaginationItem-root {
+  &.Mui-selected {
+    background: $secondaryColor;
+  }
+}
+
+.MuiButton-textPrimary, &.MuiButton-text {
+  color: $secondaryColor;
+  &:hover {
+    color: darken($secondaryColor,  20%);
+  }
+}

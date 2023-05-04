@@ -1,0 +1,15 @@
+name: sample-test
+version: 0.0.1
+title: Sample
+description: Sample Connector
+security:
+  test:
+    type: KEYLESS
+    title: Public unsecured access
+apps:
+  sample:
+    title: Sample
+    spec: Sample.yml
+    auth:
+      type: apiKey
+      title: API Key

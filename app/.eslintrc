@@ -1,0 +1,29 @@
+{
+  "root": true,
+  "parser": "@babel/eslint-parser",
+  "env": { "es2021": true },
+  "extends": ["plugin:prettier/recommended", "plugin:react/recommended"],
+  "rules": {
+    "prettier/prettier": 2,
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": [1, {"skipUndeclared": true}],
+    "react/no-unescaped-entities": 1
+  },
+  "parserOptions": {
+    "requireConfigFile": false,
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "babelOptions": {
+      "presets": [
+          "@babel/preset-react"
+      ]
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+.avatar {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding-top: 2em;
+
+  h5 {
+    &.name {
+      color: $accentColor;
+    }
+  }
+  p {
+    color: $offsetColor;
+  }
+
+  a {
+    background: $primaryColor;
+    color: $accentColor;
+    font-weight: bold;
+    font-size: 1.8rem;
+  }
+}

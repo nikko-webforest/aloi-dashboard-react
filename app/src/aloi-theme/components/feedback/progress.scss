@@ -1,0 +1,6 @@
+.MuiLinearProgress-root {
+  background: rgba($secondaryColor, 0.5);
+  .MuiLinearProgress-bar {
+    background: $secondaryColor;
+  }
+}

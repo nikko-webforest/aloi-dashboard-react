@@ -1,0 +1,15 @@
+{
+	"extra-config": {},
+	"apis": [
+		{
+			"name": "discord",
+			"config": {
+			    "webhook_id": "123456 Sample",
+			    "webhook_token": "ABCD789 Sample"
+			}
+		},
+		{
+			"name": "customerio"
+		}
+	]
+}

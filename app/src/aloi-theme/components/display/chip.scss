@@ -1,0 +1,11 @@
+.MuiChip-root {
+  &.pending {
+    background: #FFEEB4;
+    span {
+      color: #734200;
+    }
+  }
+  span {
+    text-transform: capitalize;
+  }
+}

@@ -1,0 +1,52 @@
+/*
+*
+*   TABLE OF CONTENTS
+*
+*   1. Variables
+*   2. Components
+*     2.1 General Styling
+*     2.2 Layouts
+*       2.2.1 Header Styling
+*       2.2.2 Sidebar Styling
+*     2.3 Navigation
+*       2.3.1 Item Styling
+*     2.4 Display
+*       2.4.1 Avatar
+*       2.4.2 Alerts
+*       2.4.3 Icons
+*       2.4.4 Chip
+*     2.5. Inputs
+*       2.5.1 Buttons
+*     2.6 Feedback
+*       2.6.1 Progress
+*/
+
+
+/*
+*
+* Import Variables
+*
+*/
+
+@import 'variables.scss';
+
+
+/*
+*
+* Components
+*
+*/
+
+.aloi {
+  @import 'components/general/general.scss';
+  @import 'components/layout/header.scss';
+  @import 'components/layout/sidebar.scss';
+  @import 'components/layout/layout.scss';
+  @import 'components/navigation/item.scss';
+  @import 'components/display/avatar.scss';
+  // @import 'components/display/alerts.scss';
+  // @import 'components/display/icons.scss';
+  // @import 'components/display/chip.scss';
+  @import 'components/inputs/buttons.scss';
+  // @import 'components/feedback/progress.scss';
+}

@@ -1,0 +1,21 @@
+.nav {
+  li {
+    a {
+      span {
+        color: $accentColor;
+        svg {
+          color: $secondaryColor;
+        }
+      }
+      svg {
+        color: $secondaryColor;
+      }
+      &.active {
+        background: #0B1A1F;
+        span {
+          color: $offsetColor;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+    "package": "sample-test",
+    "name": "sample",
+    "security": { "test": {} },
+    "apps": {
+        "firebase": {
+            "host": "api.sample.io",
+            "credentials": {
+                "token": "",
+                "apiKey": ""
+            }
+        }
+    }
+}

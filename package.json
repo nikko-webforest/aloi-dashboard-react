@@ -1,0 +1,49 @@
+{
+  "name": "aloi-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "author": "",
+  "license": "ISC",
+  "workspaces": [
+    "app",
+    "ui",
+    "connector"
+  ],
+  "devDependencies": {
+    "@storybook/addon-actions": "^6.4.9",
+    "@storybook/addon-essentials": "^6.4.9",
+    "@storybook/addon-links": "^6.4.9",
+    "@storybook/node-logger": "^6.4.9",
+    "@storybook/preset-create-react-app": "^3.2.0",
+    "@storybook/react": "^6.4.9"
+  },
+  "dependencies": {
+    "@date-io/moment": "^2.13.1",
+    "@jsonforms/core": "^2.5.2",
+    "@jsonforms/material-renderers": "^2.5.2",
+    "@jsonforms/react": "^2.5.2",
+    "@jsonforms/vanilla-renderers": "^2.5.2",
+    "@mui/x-date-pickers-pro": "^5.0.0-alpha.1",
+    "@react-keycloak/web": "^3.4.0",
+    "bootstrap": "^5.1.3",
+    "react-bootstrap": "^2.1.0"
+  },
+  "eslintConfig": {
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
+  }
+}
