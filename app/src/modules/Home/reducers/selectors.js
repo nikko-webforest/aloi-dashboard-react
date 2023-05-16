@@ -1,7 +1,8 @@
 // Selectors should be Pure functions
 // @see https://react-redux.js.org/api/hooks#useselector
 
-import { createSelector, createSelectorFactory } from "src/util";
+// import { createSelector, createSelectorFactory } from "src/util"; change this to the code below so that storybook can read the util
+import { createSelector, createSelectorFactory } from "../../../util";
 
 // Simple selector
 const getCounter = (state) => state.home.counter;

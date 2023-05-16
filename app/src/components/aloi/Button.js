@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Context as ThemeContext } from "ui";
 import { Button as MuiButton } from "@mui/material";
-import { PropTypes } from "prop-types";
+import PropTypes from "prop-types";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 

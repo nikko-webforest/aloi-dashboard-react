@@ -1,9 +1,9 @@
 let config = {
   stories: [
-    '../app/src/**/*.mdx',
+    '../app/src/stories/**/*.mdx',
     '../app/src/stories/**/*.stories.@(js|jsx|ts|tsx)',
   ],
-  staticDirs: ['../app/'],
+  staticDirs: ['../app/public'],
   addons: [
     '@storybook/addon-actions',
     '@storybook/addon-links',
@@ -15,7 +15,7 @@ let config = {
     autodocs: 'tag',
   },
   framework: {
-    name: '@storybook/react-webpack5',
+    name: '@storybook/react-webpack4',
     options: {},
   },
   babel: async (options) => ({
@@ -23,9 +23,17 @@ let config = {
     ...options,
   }),
 
-  webpackFinal: async (config, { configType }) => {
-    // Make whatever fine-grained changes you need
-    // Return the altered config
+  webpackFinal: async (config) => {
+    config.module.rules.push({
+      test: /\.(js|jsx)$/,
+      exclude: /node_modules/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-env', '@babel/preset-react'],
+        },
+      },
+    });
     return config;
   },
 };
