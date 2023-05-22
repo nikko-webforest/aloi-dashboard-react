@@ -11,4 +11,15 @@ Type the following commands:
 
 ## Runs on Node 16 smoothly but the latest versions of node are more secure.
 
-### There are things that are needed to be installed first because some dependencies need the Windows build tools installed. Refer below:
+There are things that are needed to be installed first because some dependencies need the Windows build tools installed. Refer below:
+
+- go to Program files/nodejs
+- run the install_tools.bat and it should install all the necessary build tools for windows.
+- follow the steps in linux workflow
+
+# After Running
+
+- type /wally to url
+- input credentials
+- it will lead to /connectors, but right now, there is an error that says "process is undefined"
+- the route /packages is functional
