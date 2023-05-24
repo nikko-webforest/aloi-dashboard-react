@@ -21,5 +21,4 @@ There are things that are needed to be installed first because some dependencies
 
 - type /wally to url
 - input credentials
-- it will lead to /connectors, but right now, there is an error that says "process is undefined"
-- the route /packages is functional
+- it will lead to /connectors, where you will see all the apps that are connected.
