@@ -10,6 +10,8 @@ const Connectors = (props) => {
   const [_accessToken, setAccessToken] = useState(() => props.keycloak.token);
   const [loading, setLoading] = useState(false);
   const [rows, setRows] = useState([]);
+  const [cleanRows, setCleanRows] = useState([]);
+
   const [data, setData] = useState({
     message: "",
     disabled: false,
@@ -112,6 +114,14 @@ const Connectors = (props) => {
       });
   }, []);
 
+  useEffect(() => {
+    console.log(rows);
+    if (rows.length > 0) {
+      let newRows = rows.filter((row) => row !== null);
+      setCleanRows(newRows);
+    }
+  }, [rows]);
+
   return (
     <Layout>
       <title> Connectors | Aloi Platform </title>
@@ -146,7 +156,7 @@ const Connectors = (props) => {
               hideFooterSelectedRowCount={true}
               loading={loading}
               pageSize={10}
-              rows={rows}
+              rows={cleanRows}
               rowsPerPageOptions={[10]}
             />
           </div>
