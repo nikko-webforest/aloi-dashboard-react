@@ -114,6 +114,7 @@ const Connectors = (props) => {
       });
   }, []);
 
+  // filter out null values to avoid errors when rendering the connector rows
   useEffect(() => {
     console.log(rows);
     if (rows.length > 0) {
