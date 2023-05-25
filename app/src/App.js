@@ -9,6 +9,7 @@ import { compose } from "@reduxjs/toolkit";
 import "src/aloi-theme/App.scss";
 import { useKeycloak } from "@react-keycloak/web";
 import { LinearProgress } from "@mui/material";
+
 const ComponentEnhancers = [withRouter, withAloiTheme, withConnectorEnv, withKeycloak];
 const EnhancedProvider = compose(...ComponentEnhancers)(Provider);
 
@@ -46,6 +47,7 @@ const App = () => {
 
   const RealmConfig = {
     baseRoute: "/:account"
+    // baseRoute: "/wally"
   };
 
   return (
