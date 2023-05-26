@@ -24,7 +24,7 @@ const unauthenticated = [
   },
   {
     from: "/",
-    to: "/login",
+    to: "/wally",
     exact: true,
     redirect: true
   },

@@ -1,4 +1,6 @@
 const crypto = require('crypto');
+const path = require('path');
+
 const crypto_orig_createHash = crypto.createHash;
 crypto.createHash = (algorithm) =>
   crypto_orig_createHash(algorithm == 'md4' ? 'sha256' : algorithm);
@@ -31,6 +33,10 @@ let config = {
   webpackFinal: async (config) => {
     config.module.rules.push({
       test: /\.(js|jsx)$/,
+      include: [
+        path.join(__dirname, 'src'),
+        path.join(__dirname, '..', 'ui/src'),
+      ],
       exclude: /node_modules/,
       use: {
         loader: 'babel-loader',
