@@ -1,35 +1,52 @@
-import React from "react";
-import Keycloak from "keycloak-js";
-import { ReactKeycloakProvider, useKeycloak } from "@react-keycloak/web";
+import React from 'react';
+import Keycloak from 'keycloak-js';
+import { ReactKeycloakProvider, useKeycloak } from '@react-keycloak/web';
 
 export const withKeycloak = (WrappedComponent) => {
   const _ = (props) => {
     const { params } = props.realm.getConnectorEnv();
 
-    const {keycloak, onKeycloakEvent, keycloakInitOptions, ...otherProps} = props;
+    const { keycloak, onKeycloakEvent, keycloakInitOptions, ...otherProps } =
+      props;
 
     // @note: use (aloi) account instead of realm if props exist
-    const realm = params.account;
+
+    // const realm = params.account; // original code
+
+    // changed the realm to wally so that we can be redirected to /wally immediately.
+    // also changed the RealmConfig.baseRoute from "/:account" to just "/" for this to work
+    const realm = 'wally';
 
     // const clientId = `${realm}.client`;
     // const url = `https://auth.aloi.io/auth/realms/${realm}`;
     const url = `https://auth.aloi.io/auth/`;
-    const clientId = "aloi_api";
+    const clientId = 'aloi_api';
 
     const keyCloakInstance = Keycloak({
       url,
       realm,
       clientId,
-      ...keycloak
+      ...keycloak,
     });
 
-    return <ReactKeycloakProvider authClient={keyCloakInstance} onEvent={onKeycloakEvent} initOptions={keycloakInitOptions}>
-      <KeycloakProxy {...otherProps} Component={WrappedComponent} />
-    </ReactKeycloakProvider>;
+    return (
+      <ReactKeycloakProvider
+        authClient={keyCloakInstance}
+        onEvent={onKeycloakEvent}
+        initOptions={keycloakInitOptions}
+      >
+        <KeycloakProxy {...otherProps} Component={WrappedComponent} />
+      </ReactKeycloakProvider>
+    );
   };
 
-  return (_.displayName = `withKeycloak(${WrappedComponent.displayName || WrappedComponent.name})`), _;
-}
+  return (
+    (_.displayName = `withKeycloak(${
+      WrappedComponent.displayName || WrappedComponent.name
+    })`),
+    _
+  );
+};
 
 const KeycloakProxy = ({ Component, ...props }) => {
   let reactKeycloak = { initialized: false, keycloak: null };
@@ -43,4 +60,4 @@ const KeycloakProxy = ({ Component, ...props }) => {
   const { initialized, keycloak } = reactKeycloak;
 
   return <Component {...props} keycloak={keycloak} initialized={initialized} />;
-}
+};

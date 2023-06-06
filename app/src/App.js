@@ -45,7 +45,9 @@ const App = () => {
   const initOptions = { onLoad: "login-required", checkLoginIframe: false };
 
   const RealmConfig = {
-    baseRoute: "/:account"
+    // baseRoute: "/:account"
+    // changed to just "/" that it will redirect to /wally
+    baseRoute: "/"
   };
 
   return (
