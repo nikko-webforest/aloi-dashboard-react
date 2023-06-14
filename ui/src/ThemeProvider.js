@@ -1,12 +1,12 @@
 import { ThemeProvider } from '@mui/material/styles';
-import { createTheme, colors } from "@mui/material";
-import { createStyles, makeStyles } from "@mui/styles";
-import { AloiLink as BaseAloiLink } from "./AloiLink";
+import { createTheme, colors } from '@mui/material';
+import { createStyles, makeStyles } from '@mui/styles';
+import { AloiLink as BaseAloiLink } from './AloiLink';
 import CssBaseline from '@mui/material/CssBaseline';
-import { forwardRef } from "react";
+import { forwardRef } from 'react';
 
 const AloiLinkWithRef = forwardRef((props, ref) => {
-  return <BaseAloiLink {...props} />
+  return <BaseAloiLink {...props} />;
 });
 
 export const theme = createTheme({
@@ -34,35 +34,35 @@ export const theme = createTheme({
       defaultProps: {
         LinkComponent: AloiLinkWithRef,
       },
-    }
+    },
   },
 });
 
 const useStyles = makeStyles(() =>
   createStyles({
-    "@global": {
-      "*": {
-        boxSizing: "border-box",
+    '@global': {
+      '*': {
+        boxSizing: 'border-box',
         margin: 0,
-        padding: 0
+        padding: 0,
       },
       html: {
-        "-webkit-font-smoothing": "antialiased",
-        "-moz-osx-font-smoothing": "grayscale",
-        height: "100%",
-        width: "100%"
+        '-webkit-font-smoothing': 'antialiased',
+        '-moz-osx-font-smoothing': 'grayscale',
+        height: '100%',
+        width: '100%',
       },
       body: {
-        backgroundColor: "#FFF"
+        backgroundColor: '#f4ede9',
       },
       a: {
-        textDecoration: "none"
+        textDecoration: 'none',
       },
-      "#root": {
-        height: "100%",
-        width: "100%"
-      }
-    }
+      '#root': {
+        height: '100%',
+        width: '100%',
+      },
+    },
   })
 );
 
@@ -73,11 +73,18 @@ const GlobalStyles = () => {
 };
 
 export const withAloiTheme = (WrappedComponent) => {
-  const _ = ({theme, ...props}) => <ThemeProvider theme={theme}>
-    <GlobalStyles />
-    <CssBaseline />
-    <WrappedComponent {...props} />
-  </ThemeProvider>;
+  const _ = ({ theme, ...props }) => (
+    <ThemeProvider theme={theme}>
+      <GlobalStyles />
+      <CssBaseline />
+      <WrappedComponent {...props} />
+    </ThemeProvider>
+  );
 
-  return (_.displayName = `withAloiTheme(${WrappedComponent.displayName || WrappedComponent.name})`), _;
+  return (
+    (_.displayName = `withAloiTheme(${
+      WrappedComponent.displayName || WrappedComponent.name
+    })`),
+    _
+  );
 };

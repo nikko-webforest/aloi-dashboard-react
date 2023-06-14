@@ -1,4 +1,4 @@
-import logo from "../../modules/icons/custom/budget.svg"; // temporary logo
+import logo from "../../modules/icons/custom/jive-logo.svg"; // temporary logo
 
 const Logo = (props) => <img alt="Logo" src={logo} className="logo" {...props} />;
 

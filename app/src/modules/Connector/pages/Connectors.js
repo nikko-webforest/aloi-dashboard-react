@@ -55,16 +55,16 @@ const Connectors = (props) => {
       flex: 4,
       sortable: false,
       getActions: (params) => [
-        <Button key={1} href={`/app/connectors/${params.id}`}>
+        <Button key={1} href={`/app/connectors/${params.id}`} color="secondary">
           View Apps
         </Button>,
-        <Button key={2} href={`/app/connectors/${params.id}/logs`}>
+        <Button key={2} href={`/app/connectors/${params.id}/logs`} color="primary">
           View Logs
         </Button>,
         <Button key={3} href={`/app/connectors/${params.id}/jobs`}>
           View Jobs
         </Button>,
-        <Button key={4} onClick={() => deleteConnector(params)}>
+        <Button key={4} onClick={() => deleteConnector(params)} color="error">
           Delete
         </Button>
         // <Button key={4} href={`https://gateway.aloi.io/${props.keycloak.realm}/${params.id}/api/graphql`}>
@@ -146,7 +146,6 @@ const Connectors = (props) => {
           <Typography color="textPrimary" variant="h4">
             Connectors
           </Typography>
-          <hr />
           <Button variant="contained" href="/app/packages" sx={{ margin: "1em 0", float: "right" }}>
             Install Connector
           </Button>

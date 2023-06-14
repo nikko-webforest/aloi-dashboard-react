@@ -6,17 +6,20 @@
 
   h5 {
     &.name {
-      color: $accentColor;
+      color: #fff;
+      font-weight: bold;
     }
   }
   p {
-    color: $offsetColor;
+    color: #fff;
   }
 
   a {
-    background: $primaryColor;
+    background: $secondaryColor;
     color: $accentColor;
     font-weight: bold;
     font-size: 1.8rem;
+    text-decoration: none;
+    border: 3px solid red;
   }
 }

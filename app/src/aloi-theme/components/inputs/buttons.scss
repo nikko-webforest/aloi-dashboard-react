@@ -1,21 +1,21 @@
 a {
   &.MuiButton-containedPrimary {
-    background: $secondaryColor;
+    background: $primaryColor;
     border-radius: 50px;
     padding: 8px 25px;
     &:hover {
-      background: darken($secondaryColor, 20%);
+      background: darken($primaryColor, 20%);
     }
   }
 }
 
 button {
   &.MuiButton-containedPrimary {
-    background: $secondaryColor;
+    background: $primaryColor;
     border-radius: 50px;
     padding: 8px 25px;
     &:hover {
-      background: darken($secondaryColor, 20%);
+      background: darken($primaryColor, 20%);
     }
   }
 }
@@ -26,9 +26,10 @@ button {
   }
 }
 
-.MuiButton-textPrimary, &.MuiButton-text {
+.MuiButton-textPrimary,
+&.MuiButton-text {
   color: $secondaryColor;
   &:hover {
-    color: darken($secondaryColor,  20%);
+    color: darken($secondaryColor, 20%);
   }
 }

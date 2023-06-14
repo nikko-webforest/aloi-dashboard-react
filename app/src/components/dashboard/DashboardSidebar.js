@@ -57,7 +57,7 @@ const DashboardSidebar = ({ onMobileClose, openMobile }) => {
   }, [location.pathname]);
 
   const content = (
-    <Box className="sidebar">
+    <Box className="sidebar" sx={{ borderRadius: 5, marginLeft: 2 }}>
       <Box className="avatar">
         <Avatar
           component={Link}
@@ -76,7 +76,7 @@ const DashboardSidebar = ({ onMobileClose, openMobile }) => {
           {user.jobTitle}
         </Typography>
       </Box>
-      <Divider />
+      {/* <Divider /> */}
       <Box sx={{ p: 2 }}>
         <List className="nav">
           {items.map((item) => (

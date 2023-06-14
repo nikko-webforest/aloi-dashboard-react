@@ -20,21 +20,42 @@ const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
 
   return (
     <AppBar elevation={0} {...rest}>
-      <Toolbar>
+      <Toolbar sx={{ backgroundColor: "transparent" }}>
         <RouterLink to="/">
           <Logo />
         </RouterLink>
-        <Box sx={{ flexGrow: 1 }} />
-        <Hidden lgDown>
-          <IconButton color="inherit">
-            <Badge badgeContent={notifications.length} color="primary" variant="dot">
-              <NotificationsIcon />
-            </Badge>
-          </IconButton>
-          <IconButton color="inherit" onClick={kcLogout}>
-            <InputIcon />
-          </IconButton>
-        </Hidden>
+        <Box
+          sx={{
+            // backgroundColor: "white",
+            height: 60,
+            flexGrow: 1,
+            marginLeft: 8,
+            display: "flex",
+            alignItems: "center",
+            padding: 0.5
+          }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              height: "80%",
+              backgroundColor: "#669cff",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "flex-end",
+              borderRadius: 3
+            }}>
+            <Hidden lgDown>
+              <IconButton color="inherit">
+                <Badge badgeContent={notifications.length} color="primary" variant="dot">
+                  <NotificationsIcon />
+                </Badge>
+              </IconButton>
+              <IconButton color="inherit" onClick={kcLogout}>
+                <InputIcon />
+              </IconButton>
+            </Hidden>
+          </Box>
+        </Box>
         <Hidden lgUp>
           <IconButton color="inherit" onClick={onMobileNavOpen}>
             <MenuIcon />
