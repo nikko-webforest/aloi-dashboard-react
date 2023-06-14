@@ -10,6 +10,11 @@ const AloiLinkWithRef = forwardRef((props, ref) => {
 });
 
 export const theme = createTheme({
+  palette: {
+    warning: {
+      main: '#F8A80ED9',
+    },
+  },
   typography: {
     fontFamily: [
       '-apple-system',

@@ -61,7 +61,7 @@ const Connectors = (props) => {
         <Button key={2} href={`/app/connectors/${params.id}/logs`} color="primary">
           View Logs
         </Button>,
-        <Button key={3} href={`/app/connectors/${params.id}/jobs`}>
+        <Button key={3} href={`/app/connectors/${params.id}/jobs`} color="warning">
           View Jobs
         </Button>,
         <Button key={4} onClick={() => deleteConnector(params)} color="error">

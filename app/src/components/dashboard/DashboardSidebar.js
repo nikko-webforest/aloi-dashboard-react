@@ -57,7 +57,20 @@ const DashboardSidebar = ({ onMobileClose, openMobile }) => {
   }, [location.pathname]);
 
   const content = (
-    <Box className="sidebar" sx={{ borderRadius: 5, marginLeft: 2 }}>
+    <Box
+      className="sidebar"
+      // sx={{
+      //   display: { xs: "none", lg: "flex" },
+      //   flexDirection: "column",
+      //   borderRadius: 3,
+      //   width: 250,
+      //   backgroundColor: "#674abe",
+      //   position: "fixed",
+      //   top: 80,
+      //   bottom: 10,
+      //   marginLeft: 2
+      // }}
+    >
       <Box className="avatar">
         <Avatar
           component={Link}
@@ -76,7 +89,6 @@ const DashboardSidebar = ({ onMobileClose, openMobile }) => {
           {user.jobTitle}
         </Typography>
       </Box>
-      {/* <Divider /> */}
       <Box sx={{ p: 2 }}>
         <List className="nav">
           {items.map((item) => (
@@ -90,7 +102,7 @@ const DashboardSidebar = ({ onMobileClose, openMobile }) => {
 
   return (
     <>
-      <Hidden lgUp>
+      <Box sx={{ display: { lg: "none", xs: "block" } }}>
         <Drawer
           anchor="left"
           onClose={onMobileClose}
@@ -103,8 +115,8 @@ const DashboardSidebar = ({ onMobileClose, openMobile }) => {
           }}>
           {content}
         </Drawer>
-      </Hidden>
-      <Hidden lgDown>
+      </Box>
+      <Box sx={{ display: { xs: "none", md: "block" } }}>
         <Drawer
           anchor="left"
           open
@@ -118,7 +130,8 @@ const DashboardSidebar = ({ onMobileClose, openMobile }) => {
           }}>
           {content}
         </Drawer>
-      </Hidden>
+      </Box>
+      {/* {content} */}
     </>
   );
 };
