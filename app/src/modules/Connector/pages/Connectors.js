@@ -143,12 +143,20 @@ const Connectors = (props) => {
           title={`Are you sure you want to delete ${data.connectorTitle}?`}
         />
         <Container maxWidth={false}>
-          <Typography color="textPrimary" variant="h4">
+          <Typography
+            color="textPrimary"
+            variant="h4"
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              marginBottom: 3
+            }}>
             Connectors
+            <Button variant="contained" href="/app/packages" sx={{ margin: "1em 0" }}>
+              Install Connector
+            </Button>
           </Typography>
-          <Button variant="contained" href="/app/packages" sx={{ margin: "1em 0", float: "right" }}>
-            Install Connector
-          </Button>
           <div style={{ height: 650, width: "100%", clear: "both" }}>
             <DataGrid
               checkboxSelection={false}

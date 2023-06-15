@@ -21,15 +21,13 @@
 *       2.6.1 Progress
 */
 
-
 /*
 *
 * Import Variables
 *
 */
 
-@import 'variables.scss';
-
+@import "variables.scss";
 
 /*
 *
@@ -38,15 +36,15 @@
 */
 
 .aloi {
-  @import 'components/general/general.scss';
-  @import 'components/layout/header.scss';
-  @import 'components/layout/sidebar.scss';
-  @import 'components/layout/layout.scss';
-  @import 'components/navigation/item.scss';
-  @import 'components/display/avatar.scss';
+  @import "components/general/general.scss";
+  @import "components/layout/header.scss";
+  @import "components/layout/sidebar.scss";
+  @import "components/layout/layout.scss";
+  @import "components/navigation/item.scss";
+  @import "components/display/avatar.scss";
   // @import 'components/display/alerts.scss';
   // @import 'components/display/icons.scss';
   // @import 'components/display/chip.scss';
-  @import 'components/inputs/buttons.scss';
+  @import "components/inputs/buttons.scss";
   // @import 'components/feedback/progress.scss';
 }

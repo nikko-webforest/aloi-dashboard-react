@@ -57,15 +57,16 @@ const useStyles = makeStyles(() =>
         height: '100%',
         width: '100%',
       },
-      body: {
-        backgroundColor: '#f4ede9',
-      },
+      // '.root': {
+      //   backgroundColor: '#000',
+      // },
       a: {
         textDecoration: 'none',
       },
       '#root': {
         height: '100%',
         width: '100%',
+        backgroundColor: '#F4EDE9',
       },
     },
   })

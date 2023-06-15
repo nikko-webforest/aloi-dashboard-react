@@ -59,18 +59,17 @@ const DashboardSidebar = ({ onMobileClose, openMobile }) => {
   const content = (
     <Box
       className="sidebar"
-      // sx={{
-      //   display: { xs: "none", lg: "flex" },
-      //   flexDirection: "column",
-      //   borderRadius: 3,
-      //   width: 250,
-      //   backgroundColor: "#674abe",
-      //   position: "fixed",
-      //   top: 80,
-      //   bottom: 10,
-      //   marginLeft: 2
-      // }}
-    >
+      sx={{
+        display: { xs: "none", lg: "flex" },
+        flexDirection: "column",
+        borderRadius: 3,
+        width: 200,
+        backgroundColor: "#674abe",
+        position: "fixed",
+        top: 100,
+        bottom: 10,
+        marginLeft: 10
+      }}>
       <Box className="avatar">
         <Avatar
           component={Link}
@@ -91,49 +90,16 @@ const DashboardSidebar = ({ onMobileClose, openMobile }) => {
       </Box>
       <Box sx={{ p: 2 }}>
         <List className="nav">
-          {items.map((item) => (
-            <NavItem href={item.href} key={item.title} title={item.title} icon={item.icon} />
-          ))}
+          {items.map((item) => {
+            return <NavItem href={item.href} key={item.title} title={item.title} icon={item.icon} />;
+          })}
         </List>
       </Box>
       <Box sx={{ flexGrow: 1 }} />
     </Box>
   );
 
-  return (
-    <>
-      <Box sx={{ display: { lg: "none", xs: "block" } }}>
-        <Drawer
-          anchor="left"
-          onClose={onMobileClose}
-          open={openMobile}
-          variant="temporary"
-          PaperProps={{
-            sx: {
-              width: 256
-            }
-          }}>
-          {content}
-        </Drawer>
-      </Box>
-      <Box sx={{ display: { xs: "none", md: "block" } }}>
-        <Drawer
-          anchor="left"
-          open
-          variant="persistent"
-          PaperProps={{
-            sx: {
-              width: 256,
-              top: 64,
-              height: "calc(100% - 64px)"
-            }
-          }}>
-          {content}
-        </Drawer>
-      </Box>
-      {/* {content} */}
-    </>
-  );
+  return <>{content}</>;
 };
 
 DashboardSidebar.propTypes = {

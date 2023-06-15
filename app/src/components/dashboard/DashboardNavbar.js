@@ -20,24 +20,44 @@ const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
 
   return (
     <AppBar elevation={0} {...rest}>
-      <Toolbar sx={{ backgroundColor: "transparent" }}>
-        <RouterLink to="/">
-          <Logo />
-        </RouterLink>
+      <Toolbar
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          height: "100%",
+          backgroundColor: "#F4EDE9"
+        }}>
         <Box
           sx={{
-            // backgroundColor: "white",
-            height: 60,
-            flexGrow: 1,
-            marginLeft: 8,
+            backgroundColor: "#F4EDE9",
+            padding: 1,
+            width: 200,
+            height: "100%",
+            borderBottomRightRadius: 15,
             display: "flex",
             alignItems: "center",
-            padding: 0.5
+            justifyContent: "center"
+          }}>
+          <RouterLink to="/">
+            <Logo />
+          </RouterLink>
+        </Box>
+        <Box
+          sx={{
+            backgroundColor: "white",
+            height: "90%",
+            flexGrow: 1,
+            display: "flex",
+            alignItems: "center",
+            padding: 2,
+            borderTopLeftRadius: 15,
+            borderTopRightRadius: 15
           }}>
           <Box
             sx={{
               flexGrow: 1,
-              height: "80%",
+              height: "120%",
               backgroundColor: "#669cff",
               display: "flex",
               alignItems: "center",
@@ -54,13 +74,13 @@ const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
                 <InputIcon />
               </IconButton>
             </Hidden>
+            <Hidden lgUp>
+              <IconButton color="inherit" onClick={onMobileNavOpen}>
+                <MenuIcon />
+              </IconButton>
+            </Hidden>
           </Box>
         </Box>
-        <Hidden lgUp>
-          <IconButton color="inherit" onClick={onMobileNavOpen}>
-            <MenuIcon />
-          </IconButton>
-        </Hidden>
       </Toolbar>
     </AppBar>
   );

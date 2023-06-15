@@ -64,7 +64,7 @@ const PackageIndex = (props) => {
       sortable: false,
       type: "actions",
       getActions: (params) => [
-        <Button key={1} href={`/app/packages/${params.row.name}/install`} style={{ color: "#d85a57" }}>
+        <Button key={1} href={`/app/packages/${params.row.name}/install`} color="secondary">
           Install Connector
         </Button>
       ]
