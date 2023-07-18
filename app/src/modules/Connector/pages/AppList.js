@@ -4,6 +4,8 @@ import { DataGrid } from "@mui/x-data-grid";
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { withAloi } from "ui";
+import jiveBorder from "../../icons/custom/tableHeadBorder.svg";
+import ChevronLeftOutlinedIcon from "@mui/icons-material/ChevronLeftOutlined";
 
 const AppList = (props) => {
   const [_accessToken, setAccessToken] = useState(() => props.keycloak.token);
@@ -15,7 +17,7 @@ const AppList = (props) => {
     { field: "host", headerName: "Host", flex: 3 },
     {
       field: "security",
-      headerName: "security",
+      headerName: "Security",
       width: 250,
       sortable: false,
       renderCell: (params) => <Typography>{params.row.auth.type}</Typography>
@@ -27,7 +29,10 @@ const AppList = (props) => {
       width: 150,
       sortable: false,
       getActions: (params) => [
-        <Button key={1} href={`/app/connectors/${connector_name}/${params.id}/logs`}>
+        <Button
+          key={1}
+          href={`/app/connectors/${connector_name}/${params.id}/logs`}
+          sx={{ textTransform: "capitalize" }}>
           View Logs
         </Button>
       ]
@@ -71,12 +76,30 @@ const AppList = (props) => {
           py: 3
         }}>
         <Container maxWidth={false}>
-          <Typography color="textPrimary" variant="h4">
+          <Typography
+            color="textPrimary"
+            variant="h4"
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              marginBottom: 3,
+              fontWeight: "bold"
+            }}>
             {connector_name} - App Lists
+            <Button
+              variant="text"
+              href="/app/connectors"
+              sx={{
+                textTransform: "capitalize",
+                color: "#AEAEAE !important",
+                "&:hover": { backgroundColor: "transparent", color: "#FF4C6E !important" }
+              }}>
+              <ChevronLeftOutlinedIcon /> Back to Connectors
+            </Button>
           </Typography>
-          <hr />
-          <br />
-          <div style={{ height: 400, width: "100%" }}>
+          <div className="table-wrapper" style={{ height: 400, width: "100%" }}>
+            <img alt="notif" src={jiveBorder} className="tableHead" />
             <DataGrid
               checkboxSelection={false}
               columns={columns}
@@ -85,6 +108,10 @@ const AppList = (props) => {
               pageSize={10}
               rows={rows}
               rowsPerPageOptions={[10]}
+              sx={{
+                marginTop: "-11px",
+                border: "none"
+              }}
             />
           </div>
         </Container>
