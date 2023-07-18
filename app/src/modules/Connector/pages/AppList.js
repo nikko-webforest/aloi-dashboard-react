@@ -64,7 +64,7 @@ const AppList = (props) => {
 
   return (
     <Layout>
-      <title> {connector_name} - App Lists | Aloi Platform </title>
+      <title> {connector_name} - App Lists | Jive Dashboard </title>
       <Box
         sx={{
           minHeight: "100%",

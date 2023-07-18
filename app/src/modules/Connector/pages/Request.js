@@ -133,7 +133,7 @@ const Request = (props) => {
 
   return (
     <Layout>
-      <title> Request {requestId} | Aloi Platform </title>
+      <title> Request {requestId} | Jive Dashboard </title>
       <Box
         sx={{
           minHeight: "100%",

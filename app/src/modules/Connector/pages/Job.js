@@ -179,7 +179,7 @@ const Job = (props) => {
 
   return (
     <Layout>
-      <title> Job {jobName} | Aloi Platform </title>
+      <title> Job {jobName} | Jive Dashboard </title>
       <Box
         sx={{
           minHeight: "100%",

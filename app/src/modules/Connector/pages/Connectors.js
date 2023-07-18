@@ -127,7 +127,7 @@ const Connectors = (props) => {
 
   return (
     <Layout>
-      <title> Connectors | Jive </title>
+      <title> Connectors | Jive Dashboard </title>
       <Box
         sx={{
           minHeight: "100%",

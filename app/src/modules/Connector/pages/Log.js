@@ -204,7 +204,7 @@ const Log = (props) => {
     <Layout>
       <title>
         {" "}
-        Log {connector_name} {app_name ? "/" + app_name : ""} | Aloi Platform{" "}
+        Log {connector_name} {app_name ? "/" + app_name : ""} | Jive Dashboard{" "}
       </title>
       <Box
         sx={{

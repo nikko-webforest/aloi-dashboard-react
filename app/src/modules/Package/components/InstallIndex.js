@@ -183,7 +183,7 @@ const InstallIndex = (props) => {
 
   return (
     <>
-      <title>Install Package | Aloi Platform</title>
+      <title>Install Package | Jive Dashboard</title>
       <Box
         sx={{
           minHeight: "100%",

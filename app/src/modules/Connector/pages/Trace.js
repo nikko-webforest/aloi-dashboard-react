@@ -220,7 +220,7 @@ const Trace = (props) => {
   return (
     <Layout>
       <title>
-        Trace Logs: {transactionId} {connector_name} {app_name ? "/" + app_name : ""} | Aloi Platform
+        Trace Logs: {transactionId} {connector_name} {app_name ? "/" + app_name : ""} | Jive Dashboard
       </title>
       <Box
         sx={{
