@@ -1,0 +1,54 @@
+.modal-icon{
+    display: none;
+    &.active {
+        display: block;
+        width: 60px;
+        padding-left:24px;
+    }
+}
+.alert {
+    .MuiPaper-root {
+        padding: 50px 30px;
+        border-radius: 20px;
+        border-top: 20px solid #FF3259;
+        button {
+            border: 1px solid #747474;
+            padding: 6px 30px;
+            border-radius: 20px;
+            color: #747474;
+            &:nth-child(2) {
+                border-color: #FF3259;
+                background: #FF3259;
+                color: #fff;
+            }
+        }
+    }
+}
+
+.question {
+    .MuiPaper-root {
+        padding: 50px 30px;
+        border-radius: 20px;
+        border-top: 20px solid #669CFF;
+        text-align: center;
+        button {
+            border: 1px solid #747474;
+            padding: 6px 30px;
+            border-radius: 20px;
+            color: #747474;
+            &:nth-child(2) {
+                border-color: #669CFF;
+                background: #669CFF;
+                color: #fff;
+            }
+        }
+        .css-hlj6pa-MuiDialogActions-root {
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-icon {
+            margin: 0 auto;
+            padding-left: 0px;
+        }
+    }
+}

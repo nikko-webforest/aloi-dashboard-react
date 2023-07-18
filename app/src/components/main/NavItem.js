@@ -5,15 +5,9 @@ import { Button, ListItem } from "@mui/material";
 const NavItem = ({ href, icon: Icon, title, ...rest }) => {
   const location = useLocation();
 
-  const active = href
-    ? !!matchPath(
-        {
-          path: href,
-          end: false
-        },
-        location.pathname
-      )
-    : false;
+  const active = href == location.pathname
+    ? "active"
+    : "";
 
   return (
     <ListItem
@@ -25,6 +19,7 @@ const NavItem = ({ href, icon: Icon, title, ...rest }) => {
       {...rest}>
       <Button
         component={RouterLink}
+        className={active}
         sx={{
           color: "text.secondary",
           fontWeight: "medium",
@@ -42,7 +37,7 @@ const NavItem = ({ href, icon: Icon, title, ...rest }) => {
           }
         }}
         to={href}>
-        {Icon && <Icon size="20" />}
+        <img alt="Logo" src={Icon} className="icon"/>
         <span>{title}</span>
       </Button>
     </ListItem>

@@ -1,87 +1,13 @@
 .dashboard-wrapper {
   display: flex;
-  // flex: 1 1 auto;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  padding-top: 65px;
-  margin: 25px;
-  background-color: #fff;
-  border-radius: 10px;
-  @media (min-width: 1200px) {
-    padding-left: 256px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 30px;
+  background: #fff;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  .dashboard-container {
+    width: 100%;
   }
-}
-
-// .card-bg {
-//   background-color: $primaryColor;
-//   strong {
-//     color: white;
-//   }
-//   small {
-//     color: rgba(255, 255, 255, 0.53);
-//   }
-
-//   ul {
-//     list-style: none;
-//     margin: 1em 0;
-//     padding: 0 7%;
-//     width: 86%;
-
-//     li {
-//       svg {
-//         color: $secondaryColor;
-//       }
-//       small {
-//         color: white;
-//         font-weight: bolder;
-//       }
-//       color: white;
-//     }
-//   }
-// }
-
-.dashboard-container {
-  display: flex;
-  flex: 1 1 auto;
-  overflow: hidden;
-  background-color: #fff;
-  border-radius: 10px;
-}
-
-.dashboard-content {
-  flex: 1 1 auto;
-  height: 100%;
-  overflow: auto;
-  border-left: none;
-  background-color: #fff;
-  border-radius: 10px;
-}
-
-.main-layout-root {
-  background: red;
-  display: flex;
-  height: 100%;
-  overflow: hidden;
-  width: 100%;
-}
-
-.main-layout-wrapper {
-  display: flex;
-  flex: 1 1 auto;
-  overflow: hidden;
-  margin-top: 2em;
-  background-color: red;
-}
-
-.main-layout-container {
-  display: flex;
-  flex: 1 1 auto;
-  overflow: hidden;
-}
-
-.main-layout-content {
-  flex: 1 1 auto;
-  height: 100%;
-  overflow: auto;
 }

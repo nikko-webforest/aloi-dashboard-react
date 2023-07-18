@@ -4,16 +4,7 @@ import { Button, ListItem } from "@mui/material";
 
 const NavItem = ({ href, icon: Icon, title, color, ...rest }) => {
   const location = useLocation();
-
-  const active = href
-    ? !!matchPath(
-        {
-          path: href,
-          end: false
-        },
-        location.pathname
-      )
-    : false;
+  const active = href.includes(location.pathname) ? "active" : "";
 
   return (
     <ListItem
@@ -22,7 +13,8 @@ const NavItem = ({ href, icon: Icon, title, color, ...rest }) => {
         display: "flex",
         py: 0
       }}
-      {...rest}>
+      {...rest}
+      className={active}>
       <Button
         sx={{
           color: "text.secondary",
@@ -52,7 +44,7 @@ const NavItem = ({ href, icon: Icon, title, color, ...rest }) => {
           }
         }}
         href={href}>
-        {Icon && <Icon size="20" sx={{ fill: color }} />}
+        <img alt="Logo" src={Icon} className="icon" />
         <span className="titleName" style={{ color: "#fff" }}>
           {title}
         </span>

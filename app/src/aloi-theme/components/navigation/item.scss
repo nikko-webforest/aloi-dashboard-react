@@ -1,6 +1,10 @@
 .nav {
   li {
+    margin-bottom: 10px;
     a {
+      img {
+        margin: 0px 10px;
+      }
       span {
         color: $accentColor;
         svg {
@@ -10,10 +14,17 @@
       svg {
         color: $secondaryColor;
       }
-      &.active {
-        background: #0B1A1F;
+      
+    }
+    &.active {
+      background: #fff;
+      border-top-left-radius: 100px;
+      border-bottom-left-radius: 100px;
+      a {
         span {
-          color: $offsetColor;
+          &.titleName {
+            color: #669CFF !important;
+          }
         }
       }
     }

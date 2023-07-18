@@ -5,6 +5,10 @@ import { Avatar, Box, Button, Divider, Drawer, Hidden, List, Typography } from "
 import Link from "@mui/material/Link";
 import { Inventory2 } from "@mui/icons-material";
 import ListIcon from "@mui/icons-material/List";
+// @ts-ignore
+import jiveListIcon from "../../modules/icons/custom/listIcon.svg";
+// @ts-ignore
+import jivePackageIcon from "../../modules/icons/custom/packages.svg";
 import {
   AlertCircle as AlertCircleIcon,
   BarChart as BarChartIcon,
@@ -21,13 +25,13 @@ import { useKeycloak } from "@react-keycloak/web";
 const items = [
   {
     href: "/app/connectors",
-    icon: ListIcon,
+    icon: jiveListIcon,
     title: "Connectors",
     color: "#FF6583"
   },
   {
     href: "/app/packages",
-    icon: Inventory2,
+    icon: jivePackageIcon,
     title: "Packages",
     color: "#DEA041"
   }

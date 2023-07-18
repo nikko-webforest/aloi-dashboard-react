@@ -8,12 +8,16 @@ const DashboardLayout = ({ children }) => {
   const [isMobileNavOpen, setMobileNavOpen] = useState(false);
 
   return (
-    <div className="aloi">
-      <DashboardNavbar onMobileNavOpen={() => setMobileNavOpen(true)} />
-      <DashboardSidebar onMobileClose={() => setMobileNavOpen(false)} openMobile={isMobileNavOpen} />
-      <div className="dashboard-wrapper">
-        <div className="dashboard-container">
-          <div className="dashboard-content ">{children}</div>
+    <div className="jive">
+      <div className="dashboard-layout">
+        <DashboardNavbar onMobileNavOpen={() => setMobileNavOpen(true)} />
+        <div className="dashboard-wrapper">
+          <div className="dashboard-sidebar">
+            <DashboardSidebar onMobileClose={() => setMobileNavOpen(false)} openMobile={isMobileNavOpen} />
+          </div>
+          <div className="dashboard-container">
+            <div className="dashboard-content ">{children}</div>
+          </div>
         </div>
       </div>
     </div>

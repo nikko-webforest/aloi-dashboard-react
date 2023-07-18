@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import { useParams, Link as LinkReact } from "react-router-dom";
 import { withAloi } from "ui";
 import { generateAppPayload, generatePackagePayload, generateSecurityPayload } from "./utils";
+// @ts-ignore
+import jiveBorder from "../../icons/custom/tableHeadBorder.svg";
 
 const PackageIndex = (props) => {
   const [_accessToken, setAccessToken] = useState(() => props.keycloak.token);
@@ -117,22 +119,19 @@ const PackageIndex = (props) => {
             Below is a list of packages uploaded to your Aloi workspace. These packages are not currently deployed on
             Aloi.{" "}
           </Typography>
-          <div style={{ height: "600px", width: "100%", marginTop: "20px" }}>
-            <div style={{ width: "100%" }}>
-              <div
-                style={{
-                  position: "relative"
-                }}>
-                <div style={{ height: "10px", position: "absolute", width: "100%" }}>
-                  <div style={{ height: "100%", display: "grid", gridTemplateColumns: "auto auto auto" }}>
-                    <div style={{ backgroundColor: "#F9B532" }}></div>
-                    <div style={{ backgroundColor: "#FF3259" }}></div>
-                    <div style={{ backgroundColor: "#669CFF" }}></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <DataGrid rows={rows} columns={columns} pageSize={25} loading={loading} rowsPerPageOptions={[25]} />
+          <div className="table-wrapper" style={{ height: 650, width: "100%", clear: "both" }}>
+            <img alt="notif" src={jiveBorder} className="tableHead" />
+            <DataGrid
+              rows={rows}
+              columns={columns}
+              pageSize={10}
+              loading={loading}
+              rowsPerPageOptions={[10]}
+              sx={{
+                marginTop: "-11px",
+                border: "none"
+              }}
+            />
           </div>
         </Container>
       </Box>

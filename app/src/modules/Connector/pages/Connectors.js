@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { withAloi } from "ui";
 import ModalAloi from "../../utils/Modal";
+// @ts-ignore
+import jiveBorder from "../../icons/custom/tableHeadBorder.svg";
 
 const Connectors = (props) => {
   const [_accessToken, setAccessToken] = useState(() => props.keycloak.token);
@@ -125,7 +127,7 @@ const Connectors = (props) => {
 
   return (
     <Layout>
-      <title> Connectors | Aloi Platform </title>
+      <title> Connectors | Jive </title>
       <Box
         sx={{
           minHeight: "100%",
@@ -135,6 +137,7 @@ const Connectors = (props) => {
           agree="Delete"
           close="Cancel"
           loading={data.loading}
+          type="alert"
           message="This item will be deleted immediately. You can't undo this action"
           onClose={onClose}
           onSubmit={onSubmit}
@@ -158,21 +161,8 @@ const Connectors = (props) => {
               Install Connector
             </Button>
           </Typography>
-          <div style={{ height: 650, width: "100%", clear: "both" }}>
-            <div style={{ width: "100%" }}>
-              <div
-                style={{
-                  position: "relative"
-                }}>
-                <div style={{ height: "10px", position: "absolute", width: "100%" }}>
-                  <div style={{ height: "100%", display: "grid", gridTemplateColumns: "auto auto auto" }}>
-                    <div style={{ backgroundColor: "#F9B532" }}></div>
-                    <div style={{ backgroundColor: "#FF3259" }}></div>
-                    <div style={{ backgroundColor: "#669CFF" }}></div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="table-wrapper" style={{ height: 650, width: "100%", clear: "both" }}>
+            <img alt="notif" src={jiveBorder} className="tableHead" />
             <DataGrid
               checkboxSelection={false}
               columns={columns}
@@ -181,6 +171,10 @@ const Connectors = (props) => {
               pageSize={10}
               rows={cleanRows}
               rowsPerPageOptions={[10]}
+              sx={{
+                marginTop: "-11px",
+                border: "none"
+              }}
             />
           </div>
         </Container>

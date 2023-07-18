@@ -35,11 +35,14 @@
 *
 */
 
-.aloi {
+.jive {
+  height: 100vh;
   @import "components/general/general.scss";
   @import "components/layout/header.scss";
   @import "components/layout/sidebar.scss";
   @import "components/layout/layout.scss";
+  @import "components/layout/table.scss";
+
   @import "components/navigation/item.scss";
   @import "components/display/avatar.scss";
   // @import 'components/display/alerts.scss';
@@ -48,3 +51,5 @@
   @import "components/inputs/buttons.scss";
   // @import 'components/feedback/progress.scss';
 }
+
+@import "components/layout/modal.scss";
