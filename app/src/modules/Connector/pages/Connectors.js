@@ -55,16 +55,16 @@ const Connectors = (props) => {
       flex: 4,
       sortable: false,
       getActions: (params) => [
-        <Button key={1} href={`/app/connectors/${params.id}`} color="secondary">
+        <Button key={1} href={`/app/connectors/${params.id}`} color="secondary" sx={{ textTransform: "capitalize" }}>
           View Apps
         </Button>,
-        <Button key={2} href={`/app/connectors/${params.id}/logs`} color="primary">
+        <Button key={2} href={`/app/connectors/${params.id}/logs`} color="primary" sx={{ textTransform: "capitalize" }}>
           View Logs
         </Button>,
-        <Button key={3} href={`/app/connectors/${params.id}/jobs`} color="warning">
+        <Button key={3} href={`/app/connectors/${params.id}/jobs`} color="warning" sx={{ textTransform: "capitalize" }}>
           View Jobs
         </Button>,
-        <Button key={4} onClick={() => deleteConnector(params)} color="error">
+        <Button key={4} onClick={() => deleteConnector(params)} color="error" sx={{ textTransform: "capitalize" }}>
           Delete
         </Button>
         // <Button key={4} href={`https://gateway.aloi.io/${props.keycloak.realm}/${params.id}/api/graphql`}>
@@ -150,7 +150,8 @@ const Connectors = (props) => {
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
-              marginBottom: 3
+              marginBottom: 3,
+              fontWeight: "bold"
             }}>
             Connectors
             <Button variant="contained" href="/app/packages" sx={{ margin: "1em 0" }}>
@@ -158,6 +159,20 @@ const Connectors = (props) => {
             </Button>
           </Typography>
           <div style={{ height: 650, width: "100%", clear: "both" }}>
+            <div style={{ width: "100%" }}>
+              <div
+                style={{
+                  position: "relative"
+                }}>
+                <div style={{ height: "10px", position: "absolute", width: "100%" }}>
+                  <div style={{ height: "100%", display: "grid", gridTemplateColumns: "auto auto auto" }}>
+                    <div style={{ backgroundColor: "#F9B532" }}></div>
+                    <div style={{ backgroundColor: "#FF3259" }}></div>
+                    <div style={{ backgroundColor: "#669CFF" }}></div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <DataGrid
               checkboxSelection={false}
               columns={columns}

@@ -18,7 +18,7 @@ const AppList = (props) => {
       headerName: "security",
       width: 250,
       sortable: false,
-      renderCell: (params) => <div>{params.row.auth.type}</div>
+      renderCell: (params) => <Typography>{params.row.auth.type}</Typography>
     },
     {
       field: "option",

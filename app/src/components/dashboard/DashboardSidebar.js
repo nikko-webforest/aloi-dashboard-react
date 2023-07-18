@@ -22,12 +22,14 @@ const items = [
   {
     href: "/app/connectors",
     icon: ListIcon,
-    title: "Connectors"
+    title: "Connectors",
+    color: "#FF6583"
   },
   {
     href: "/app/packages",
     icon: Inventory2,
-    title: "Packages"
+    title: "Packages",
+    color: "#DEA041"
   }
 ];
 
@@ -76,7 +78,9 @@ const DashboardSidebar = ({ onMobileClose, openMobile }) => {
           sx={{
             cursor: "pointer",
             width: 64,
-            height: 64
+            height: 64,
+            bgcolor: "#000",
+            paddingBottom: "5px"
           }}
           href={`https://auth.aloi.io/auth/realms/${keycloak.realm}/account/`}>
           {user.avatar}
@@ -88,10 +92,10 @@ const DashboardSidebar = ({ onMobileClose, openMobile }) => {
           {user.jobTitle}
         </Typography>
       </Box>
-      <Box sx={{ p: 2 }}>
+      <Box sx={{ pl: 2 }}>
         <List className="nav">
           {items.map((item) => {
-            return <NavItem href={item.href} key={item.title} title={item.title} icon={item.icon} />;
+            return <NavItem href={item.href} key={item.title} title={item.title} icon={item.icon} color={item.color} />;
           })}
         </List>
       </Box>

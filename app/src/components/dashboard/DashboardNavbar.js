@@ -1,10 +1,10 @@
 import { useCallback, useState } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import PropTypes from "prop-types";
-import { AppBar, Badge, Box, Hidden, IconButton, Toolbar } from "@mui/material";
+import { AppBar, Badge, Box, Hidden, IconButton, Toolbar, Avatar } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import NotificationsIcon from "@mui/icons-material/NotificationsOutlined";
-import InputIcon from "@mui/icons-material/Input";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import LogoutIcon from "@mui/icons-material/Logout";
 import Logo from "./Logo";
 import { useKeycloak } from "@react-keycloak/web";
 
@@ -67,11 +67,11 @@ const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
             <Hidden lgDown>
               <IconButton color="inherit">
                 <Badge badgeContent={notifications.length} color="primary" variant="dot">
-                  <NotificationsIcon />
+                  <NotificationsIcon sx={{ fill: "#E2A632" }} />
                 </Badge>
               </IconButton>
               <IconButton color="inherit" onClick={kcLogout}>
-                <InputIcon />
+                <LogoutIcon sx={{ fill: "#674ABE" }} />
               </IconButton>
             </Hidden>
             <Hidden lgUp>

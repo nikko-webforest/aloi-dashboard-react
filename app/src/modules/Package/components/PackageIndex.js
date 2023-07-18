@@ -53,7 +53,11 @@ const PackageIndex = (props) => {
         const sec = Object.keys(params.row.security)
           .map((data, key) => params.row.security[data].type)
           .join(", ");
-        return sec;
+        return (
+          <Button disabled>
+            <Typography sx={{ textTransform: "capitalize" }}>{sec}</Typography>
+          </Button>
+        );
       },
       sortable: false
     },
@@ -65,7 +69,7 @@ const PackageIndex = (props) => {
       type: "actions",
       getActions: (params) => [
         <Button key={1} href={`/app/packages/${params.row.name}/install`} color="secondary">
-          Install Connector
+          <Typography sx={{ textTransform: "capitalize" }}>Install Connector</Typography>
         </Button>
       ]
     }
@@ -105,16 +109,29 @@ const PackageIndex = (props) => {
           py: 3
         }}>
         <Container maxWidth={false}>
-          <Typography color="textPrimary" variant="h4">
+          <Typography color="textPrimary" variant="h4" sx={{ fontWeight: "bold" }}>
             Packages
           </Typography>
-          <Typography color="textPrimary" variant="caption">
+          <Typography color="textPrimary" variant="caption" sx={{ fontSize: "0.95rem", color: "#9B9B9B" }}>
             {" "}
             Below is a list of packages uploaded to your Aloi workspace. These packages are not currently deployed on
             Aloi.{" "}
           </Typography>
-          <hr />
-          <div style={{ height: "600px", width: "100%" }}>
+          <div style={{ height: "600px", width: "100%", marginTop: "20px" }}>
+            <div style={{ width: "100%" }}>
+              <div
+                style={{
+                  position: "relative"
+                }}>
+                <div style={{ height: "10px", position: "absolute", width: "100%" }}>
+                  <div style={{ height: "100%", display: "grid", gridTemplateColumns: "auto auto auto" }}>
+                    <div style={{ backgroundColor: "#F9B532" }}></div>
+                    <div style={{ backgroundColor: "#FF3259" }}></div>
+                    <div style={{ backgroundColor: "#669CFF" }}></div>
+                  </div>
+                </div>
+              </div>
+            </div>
             <DataGrid rows={rows} columns={columns} pageSize={25} loading={loading} rowsPerPageOptions={[25]} />
           </div>
         </Container>
