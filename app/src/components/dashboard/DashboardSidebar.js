@@ -79,7 +79,7 @@ const DashboardSidebar = ({ onMobileClose, openMobile }) => {
             cursor: "pointer",
             width: 64,
             height: 64,
-            bgcolor: "#000",
+            bgcolor: "#6C9CFC",
             paddingBottom: "5px"
           }}
           href={`https://auth.aloi.io/auth/realms/${keycloak.realm}/account/`}>
