@@ -16,6 +16,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { withAloi } from "ui";
 import CircularProgress from "@mui/material/CircularProgress";
+import ChevronLeftOutlinedIcon from "@mui/icons-material/ChevronLeftOutlined";
+import jiveBorder from "../../icons/custom/tableHeadBorder.svg";
 
 const Job = (props) => {
   const [_accessToken, setAccessToken] = useState(() => props.keycloak.token);
@@ -237,14 +239,31 @@ const Job = (props) => {
           </>
         )}
         <Container maxWidth={false}>
-          <Typography color="textPrimary" variant="h4">
-            {connector_name}
+          <Typography
+            color="textPrimary"
+            variant="h4"
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              marginBottom: 3,
+              fontWeight: "bold"
+            }}>
+            {connector_name} Job Lists
+            <Button
+              variant="text"
+              href="/app/connectors"
+              sx={{
+                textTransform: "capitalize",
+                color: "#AEAEAE !important",
+                "&:hover": { backgroundColor: "transparent", color: "#FF4C6E !important" }
+              }}>
+              <ChevronLeftOutlinedIcon /> Back to Connectors
+            </Button>
           </Typography>
-          <hr />
-          <br />
-          <div style={{ height: 600, width: "100%" }}>
+          <div className="table-wrapper" style={{ height: 600, width: "100%" }}>
+            <img alt="notif" src={jiveBorder} className="tableHead" />
             <DataGrid
-              autoHeight
               checkboxSelection={false}
               columns={columns}
               hideFooterSelectedRowCount={true}
@@ -262,6 +281,10 @@ const Job = (props) => {
                 updateData("pageSize", data);
               }}
               paginationMode={"server"}
+              sx={{
+                marginTop: "-11px",
+                border: "none"
+              }}
             />
           </div>
         </Container>
