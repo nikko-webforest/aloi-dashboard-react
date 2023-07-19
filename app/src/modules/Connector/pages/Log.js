@@ -6,6 +6,8 @@ import { DataGrid } from "@mui/x-data-grid";
 import { useEffect, useState, Fragment } from "react";
 import { useParams, Link } from "react-router-dom";
 import { withAloi } from "ui";
+import jiveBorder from "../../icons/custom/tableHeadBorder.svg";
+import ChevronLeftOutlinedIcon from "@mui/icons-material/ChevronLeftOutlined";
 
 const Log = (props) => {
   const [_accessToken, setAccessToken] = useState(() => props.keycloak.token);
@@ -212,15 +214,34 @@ const Log = (props) => {
           py: 3
         }}>
         <Container maxWidth={false}>
-          <Typography color="textPrimary" variant="h4">
+          <Typography
+            color="textPrimary"
+            variant="h4"
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              marginBottom: 3,
+              fontWeight: "bold"
+            }}>
             {connector_name}
-            {app_name ? "/" + app_name : ""}
+            {app_name ? "/" + app_name : ""} Log Lists
+            <Button
+              variant="text"
+              href="/app/connectors"
+              sx={{
+                textTransform: "capitalize",
+                color: "#AEAEAE !important",
+                "&:hover": { backgroundColor: "transparent", color: "#FF4C6E !important" }
+              }}>
+              <ChevronLeftOutlinedIcon /> Back to Connectors
+            </Button>
           </Typography>
-          <hr />
+
           <Search search={search} updateSearch={updateSearch} clearData={clearData} onSubmit={onSubmit} />
-          <div style={{ height: 600, width: "100%" }}>
+          <div className="table-wrapper" style={{ height: 500, width: "100%", clear: "both" }}>
+            <img alt="notif" src={jiveBorder} className="tableHead" />
             <DataGrid
-              autoHeight
               checkboxSelection={false}
               columns={columns}
               hideFooterSelectedRowCount={true}
@@ -238,6 +259,10 @@ const Log = (props) => {
                 updateData("pageSize", data);
               }}
               paginationMode={"server"}
+              sx={{
+                marginTop: "-11px",
+                border: "none"
+              }}
             />
           </div>
         </Container>

@@ -115,16 +115,30 @@ const Search = (props) => {
             />
           </FormControl>
         </LocalizationProvider>
-        <FormControl sx={{ marginLeft: 1, minWidth: 150 }}>
-          <Button variant="contained" sx={{ marginTop: "1em" }} onClick={() => onSubmit()}>
+        <FormControl sx={{ marginLeft: 1, minWidth: 120 }}>
+          <Button variant="contained" sx={{ marginTop: "1em", textTransform: "capitalize" }} onClick={() => onSubmit()}>
             {" "}
             Search{" "}
           </Button>
         </FormControl>
-        <FormControl>
+        <FormControl sx={{ marginLeft: 2, minWidth: 130 }}>
           <Button
-            variant="contained"
-            sx={{ marginLeft: "1em", marginTop: "1em", width: "150px" }}
+            variant="outlined"
+            sx={{
+              marginTop: "1em",
+              borderColor: "#674ABE !important",
+              borderWidth: "1px",
+              paddingTop: "7px",
+              paddingBottom: "7px",
+              color: "#674ABE",
+              textTransform: "capitalize",
+              fontWeight: "medium",
+              borderRadius: "50px",
+              "&:hover": {
+                borderColor: "##674ABE !important",
+                color: "##674ABE"
+              }
+            }}
             onClick={() => clearData()}>
             {" "}
             Reset Filter{" "}
