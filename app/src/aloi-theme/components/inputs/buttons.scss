@@ -28,7 +28,7 @@ button {
 
 .MuiButton-textPrimary,
 &.MuiButton-text {
-  color: $secondaryColor;
+  color: #674ABE;
   &:hover {
     color: darken($secondaryColor, 20%);
   }

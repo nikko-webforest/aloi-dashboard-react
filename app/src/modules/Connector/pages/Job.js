@@ -16,6 +16,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { withAloi } from "ui";
 import CircularProgress from "@mui/material/CircularProgress";
+// @ts-ignore
+import jiveBorder from "../../icons/custom/tableHeadBorder.svg";
 
 const Job = (props) => {
   const [_accessToken, setAccessToken] = useState(() => props.keycloak.token);
@@ -179,7 +181,7 @@ const Job = (props) => {
 
   return (
     <Layout>
-      <title> Job {jobName} | Aloi Platform </title>
+      <title> Job {jobName} | Jive Dashboard </title>
       <Box
         sx={{
           minHeight: "100%",
@@ -240,9 +242,9 @@ const Job = (props) => {
           <Typography color="textPrimary" variant="h4">
             {connector_name}
           </Typography>
-          <hr />
           <br />
-          <div style={{ height: 600, width: "100%" }}>
+          <div className="table-wrapper" style={{ height: 650, width: "100%", clear: "both" }}>
+            <img alt="notif" src={jiveBorder} className="tableHead" />
             <DataGrid
               autoHeight
               checkboxSelection={false}
@@ -262,6 +264,10 @@ const Job = (props) => {
                 updateData("pageSize", data);
               }}
               paginationMode={"server"}
+              sx={{
+                marginTop: "-11px",
+                border: "none"
+              }}
             />
           </div>
         </Container>

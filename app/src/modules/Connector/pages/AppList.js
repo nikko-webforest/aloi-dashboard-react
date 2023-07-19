@@ -4,6 +4,8 @@ import { DataGrid } from "@mui/x-data-grid";
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { withAloi } from "ui";
+// @ts-ignore
+import jiveBorder from "../../icons/custom/tableHeadBorder.svg";
 
 const AppList = (props) => {
   const [_accessToken, setAccessToken] = useState(() => props.keycloak.token);
@@ -64,7 +66,7 @@ const AppList = (props) => {
 
   return (
     <Layout>
-      <title> {connector_name} - App Lists | Aloi Platform </title>
+      <title> {connector_name} - App Lists | Jive Dashboard </title>
       <Box
         sx={{
           minHeight: "100%",
@@ -74,9 +76,9 @@ const AppList = (props) => {
           <Typography color="textPrimary" variant="h4">
             {connector_name} - App Lists
           </Typography>
-          <hr />
           <br />
-          <div style={{ height: 400, width: "100%" }}>
+          <div className="table-wrapper" style={{ height: 650, width: "100%", clear: "both" }}>
+            <img alt="notif" src={jiveBorder} className="tableHead" />
             <DataGrid
               checkboxSelection={false}
               columns={columns}
@@ -85,6 +87,10 @@ const AppList = (props) => {
               pageSize={10}
               rows={rows}
               rowsPerPageOptions={[10]}
+              sx={{
+                marginTop: "-11px",
+                border: "none"
+              }}
             />
           </div>
         </Container>

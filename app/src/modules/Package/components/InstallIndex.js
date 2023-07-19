@@ -2,6 +2,7 @@ import CircleIcon from "@mui/icons-material/Circle";
 import { Skeleton, CircularProgress } from "@mui/material";
 import { Box, Container, Grid, Typography, Card, CardContent, Button, Link, Alert, AlertTitle } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
+import ModalAloi from "../../utils/Modal";
 import {
   generateSecurityObject,
   generateFormObject,
@@ -27,7 +28,14 @@ const InstallIndex = (props) => {
   });
   const { package_name } = useParams();
   const [errors, setErrors] = useState([]);
-
+  const [modalData, setModalData] = useState({
+    message: "",
+    disabled: false,
+    open: false,
+    loading: true,
+    title: "",
+    hideSubmit: false
+  });
   const requestOption = {
     method: "GET",
     headers: {
@@ -134,7 +142,14 @@ const InstallIndex = (props) => {
         const body = await data.body;
         const status = data.status;
         if (!/^[1-2][0-9][0-9]$/.test(status)) {
-          setErrors(errorHandler(body));
+          setModalData({
+            ...modalData,
+            open: true,
+            title: "Invalid package data",
+            message:
+              "Please ensure that all the required data for installing this package are accurate and correctly entered.",
+            hideSubmit: true
+          });
           return;
         }
 
@@ -154,7 +169,16 @@ const InstallIndex = (props) => {
   };
 
   const submitData = () => {
-    if (Object.keys(data).length === 0) return;
+    if (Object.keys(data).length === 0) {
+      setModalData({
+        ...modalData,
+        open: true,
+        title: "Please fill out the form completely.",
+        message: "To proceed with the installation of this package, please provide the necessary data.",
+        hideSubmit: true
+      });
+      return;
+    }
 
     const { connectorName, ...c } = data;
     const payload = { name: connectorName, ...c };
@@ -178,29 +202,62 @@ const InstallIndex = (props) => {
       };
     }, {});
     // const installObject = { name: d.connectorName.name, apps, security };
-    installConnector(payload);
+    try {
+      installConnector(payload);
+    } catch (error) {
+      setModalData({
+        ...modalData,
+        open: true,
+        title: "Something went wrong.",
+        message: "" + error + "",
+        hideSubmit: true
+      });
+    }
+  };
+
+  const onClose = () => {
+    setModalData({ ...modalData, open: false });
   };
 
   return (
     <>
-      <title>Install Package | Aloi Platform</title>
+      <title>Install Package | Jive Dashboard</title>
+      <ModalAloi
+        close="Cancel"
+        loading={modalData.loading}
+        type="alert"
+        hideSubmit={modalData.hideSubmit}
+        message={modalData.message}
+        onClose={onClose}
+        open={modalData.open}
+        title={modalData.title}
+      />
       <Box
         sx={{
           minHeight: "100%",
           py: 3
         }}>
-        <Container maxWidth={false}>
-          {packageInfo && (
-            <>
-              <Typography color="textPrimary" variant="h4">
-                {" "}
-                {packageInfo.description}{" "}
-              </Typography>
-              <Typography color="textPrimary" variant="subtitle2">
-                {packageInfo.name} {packageInfo.version}
-              </Typography>
-            </>
-          )}
+        <Container maxWidth={false} className="jive-form">
+          <Container className="form-head">
+            {packageInfo && (
+              <>
+                <Container className="title-wrapper">
+                  <Typography color="textPrimary" variant="h4" sx={{ fontWeight: "bold", fontFamily: "Helvetica" }}>
+                    {" "}
+                    {packageInfo.description}{" "}
+                  </Typography>
+                  <Typography color="textPrimary" variant="subtitle2" sx={{ color: "#9B9B9B", marginBottom: "35px" }}>
+                    {packageInfo.name} {packageInfo.version}
+                  </Typography>
+                </Container>
+                <Container className="action">
+                  <Button href="/app/packages">
+                    <Typography sx={{ textTransform: "capitalize" }}>Back to Packages</Typography>
+                  </Button>
+                </Container>
+              </>
+            )}
+          </Container>
           {errors.length > 0 && showError()}
           {Object.keys(uischema).length == 0 ? (
             <Skeleton />

@@ -13,7 +13,19 @@ import jiveAlertIcon from "../icons/custom/alert.svg";
 import jiveQuestionIcon from "../icons/custom/question.svg";
 
 const ModalAloi = (props) => {
-  const { open, close, agree, type, title, loading, disableSubmit = false, message, onClose, onSubmit } = props;
+  const {
+    open,
+    close,
+    agree,
+    type,
+    title,
+    loading,
+    disableSubmit = false,
+    message,
+    onClose,
+    onSubmit,
+    hideSubmit = false
+  } = props;
 
   return (
     <DialogMUI
@@ -35,7 +47,7 @@ const ModalAloi = (props) => {
         <Button disabled={disableSubmit} onClick={() => onClose()} autoFocus>
           {close}
         </Button>
-        <Button disabled={disableSubmit} onClick={() => onSubmit()}>
+        <Button disabled={disableSubmit} className={hideSubmit ? "hide" : ""} onClick={() => onSubmit()}>
           {agree}
         </Button>
       </DialogActions>

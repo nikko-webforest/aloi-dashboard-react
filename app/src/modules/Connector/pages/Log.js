@@ -6,6 +6,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import { useEffect, useState, Fragment } from "react";
 import { useParams, Link } from "react-router-dom";
 import { withAloi } from "ui";
+import jiveBorder from "../../icons/custom/tableHeadBorder.svg";
 
 const Log = (props) => {
   const [_accessToken, setAccessToken] = useState(() => props.keycloak.token);
@@ -204,7 +205,7 @@ const Log = (props) => {
     <Layout>
       <title>
         {" "}
-        Log {connector_name} {app_name ? "/" + app_name : ""} | Aloi Platform{" "}
+        Log {connector_name} {app_name ? "/" + app_name : ""} | Jive Dashboard{" "}
       </title>
       <Box
         sx={{
@@ -216,9 +217,9 @@ const Log = (props) => {
             {connector_name}
             {app_name ? "/" + app_name : ""}
           </Typography>
-          <hr />
           <Search search={search} updateSearch={updateSearch} clearData={clearData} onSubmit={onSubmit} />
-          <div style={{ height: 600, width: "100%" }}>
+          <div className="table-wrapper" style={{ height: 650, width: "100%", clear: "both" }}>
+            <img alt="notif" src={jiveBorder} className="tableHead" />
             <DataGrid
               autoHeight
               checkboxSelection={false}
@@ -238,6 +239,10 @@ const Log = (props) => {
                 updateData("pageSize", data);
               }}
               paginationMode={"server"}
+              sx={{
+                marginTop: "-11px",
+                border: "none"
+              }}
             />
           </div>
         </Container>

@@ -5,6 +5,8 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { withAloi } from "ui";
 import CircularProgress from "@mui/material/CircularProgress";
+// @ts-ignore
+import jiveBorder from "../../icons/custom/tableHeadBorder.svg";
 
 const Request = (props) => {
   const [_accessToken, setAccessToken] = useState(() => props.keycloak.token);
@@ -133,7 +135,7 @@ const Request = (props) => {
 
   return (
     <Layout>
-      <title> Request {requestId} | Aloi Platform </title>
+      <title> Request {requestId} | Jive Dashboard </title>
       <Box
         sx={{
           minHeight: "100%",
@@ -143,8 +145,10 @@ const Request = (props) => {
           <Typography color="textPrimary" variant="h4">
             {connector_name}
           </Typography>
-          <hr />
-          {requestId && <>{renderItem()}</>}
+          <div className="table-wrapper" style={{ maxHeight: 650, width: "100%", clear: "both" }}>
+            <img alt="notif" src={jiveBorder} className="tableHead" />
+            <div style={{ padding: "20px" }}> {requestId && <>{renderItem()}</>}</div>
+          </div>
         </Container>
       </Box>
     </Layout>

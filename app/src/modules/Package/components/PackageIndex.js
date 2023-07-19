@@ -104,7 +104,7 @@ const PackageIndex = (props) => {
 
   return (
     <>
-      <title>Packages | Aloi Platform</title>
+      <title>Packages | Jive Dashboard</title>
       <Box
         sx={{
           minHeight: "100%",

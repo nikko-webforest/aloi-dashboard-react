@@ -35,13 +35,19 @@
 *
 */
 
+body {
+  background-color: #F4EDE9;
+}
 .jive {
-  height: 100vh;
+  min-height: 100vh;
+  padding-bottom: 50px;
   @import "components/general/general.scss";
   @import "components/layout/header.scss";
   @import "components/layout/sidebar.scss";
   @import "components/layout/layout.scss";
   @import "components/layout/table.scss";
+  @import "components/layout/form.scss";
+  @import "components/layout/search.scss";
 
   @import "components/navigation/item.scss";
   @import "components/display/avatar.scss";
