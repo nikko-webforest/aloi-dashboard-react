@@ -5,8 +5,6 @@ import PropTypes from "prop-types";
 // @ts-ignore
 import { AppBar, Badge, Box, Hidden, IconButton, Toolbar, Avatar } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import NotificationsIcon from "@mui/icons-material/Notifications";
-import LogoutIcon from "@mui/icons-material/Logout";
 import Logo from "./Logo";
 import { useKeycloak } from "@react-keycloak/web";
 import ModalAloi from "../../modules/utils/Modal";
