@@ -98,7 +98,7 @@ const AppList = (props) => {
               <ChevronLeftOutlinedIcon /> Back to Connectors
             </Button>
           </Typography>
-          <div className="table-wrapper" style={{ height: 400, width: "100%" }}>
+          <div className="table-wrapper" style={{ height: 600, width: "100%" }}>
             <img alt="notif" src={jiveBorder} className="tableHead" />
             <DataGrid
               checkboxSelection={false}
