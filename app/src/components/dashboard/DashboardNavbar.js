@@ -5,12 +5,13 @@ import PropTypes from "prop-types";
 // @ts-ignore
 import { AppBar, Badge, Box, Hidden, IconButton, Toolbar, Avatar } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import LogoutIcon from "@mui/icons-material/Logout";
 import Logo from "./Logo";
 import { useKeycloak } from "@react-keycloak/web";
 import ModalAloi from "../../modules/utils/Modal";
 // @ts-ignore
 import jiveLogout from "../../modules/icons/custom/logout.svg";
-import jiveNotif from "../../modules/icons/custom/notif.svg";
 
 const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
   const [notifications] = useState([]);
@@ -96,7 +97,6 @@ const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
               borderRadius: 3
             }}>
             <Hidden lgDown>
-              <img alt="notif" src={jiveNotif} className="icon" />
               <img alt="logout" src={jiveLogout} className="icon" onClick={kcLogout} />
             </Hidden>
             <Hidden lgUp>
